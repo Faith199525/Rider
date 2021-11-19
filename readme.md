@@ -100,12 +100,6 @@ Using the Data above, here are the expected deliverables:
     <li>that shows status when a driver has completed a trip</li>
 </ol>
 
-
-### Make a Pull Request with your final solution
-
-## You have until 4pm on Saturday, 20th of November, 2021 for your submission on this repository
-
-
 # NOTE:
 > <strong>Above all, ensure your code is</strong>
 > <ol>
