@@ -17,9 +17,11 @@ class CreateBusesTable extends Migration
             $table->id();
             $table->string('serial_no');
             $table->integer('seats');
-            $table->plate_no('serial_no');
-            $table->integer('driver_id');
+            $table->string('plate_no');
+            $table->unsignedBigInteger('driver_id');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

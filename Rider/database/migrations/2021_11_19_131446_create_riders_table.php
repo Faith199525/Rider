@@ -15,9 +15,11 @@ class CreateRidersTable extends Migration
     {
         Schema::create('riders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            // $table->string('name');
+            // $table->string('email')->unique();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
         });
     }
 

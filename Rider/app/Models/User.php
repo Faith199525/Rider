@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -22,6 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    protected $with =['rider', 'driver'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rider()
+    {
+        return $this->hasOne(Rider::class);
+    }
+
+    public function driver()
+    {
+        return $this->hasOne(Driver::class);
+    }
 }

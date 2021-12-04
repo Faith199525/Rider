@@ -15,10 +15,12 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('rider_id');
-            $table->integer('bus_id');
+            $table->unsignedBigInteger('rider_id');
+            $table->unsignedBigInteger('bus_id');
             $table->string('status');
+            $table->unsignedBigInteger('trip_id')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

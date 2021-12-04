@@ -15,9 +15,11 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
-            $table->integer('bus_id');
+            $table->unsignedBigInteger('bus_id');
             $table->string('status');
+            $table->string('seats_taken');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -4,10 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Booking extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    public $fillable = [
+        'rider_id',
+        'status',
+        'bus_id',
+        'trip_id',
+    ];
 
     public function rider()
     {
@@ -18,4 +26,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Bus::class);
     }
+
+    // public function trip()
+    // {
+    //     return $this->hasOne(Trip::class, 'trip_id');
+    // }
 }
